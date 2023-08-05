@@ -1,21 +1,41 @@
-import java.util.Scanner;
-
 public class Calculator {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        System.out.print("Введите первое число: ");
-        double a = in.nextDouble();
 
-        System.out.print("Выберите действие: 1 - сложение, 2 - деление, ... : ");
-        int com = in.nextInt();
+        double a = 0;
+        double b = 0;
+        int command = 0;
 
-        System.out.print("Введите второе число: ");
-        double b = in.nextDouble();
+        EnterFirstNumber number1 = new EnterFirstNumber();
+        a = number1.enterFirstNumber();
+        EnterCommand com = new EnterCommand();
+        command = com.enterCommand();
+        EnterSecondNumber number2 = new EnterSecondNumber();
+        b = number2.enterSecondNumber();
 
-        if (com == 1)
+        if (command == 1)
         {
-            CalcSum calcSum = new CalcSum(a, b);
+            CalcSum calcSum = new CalcSum();
             calcSum.calculateSum(a, b);
+        }
+        if (command == 2)
+        {
+            CalcDiff calcDiff = new CalcDiff();
+            calcDiff.calculateDiff(a, b);
+        }
+        if (command == 3)
+        {
+            CalcMult calcMult = new CalcMult();
+            calcMult.calculateMult(a, b);
+        }
+        if (command == 4)
+        {
+            CalcDivision calcDivision = new CalcDivision();
+            calcDivision.calculateDivision(a, b);
+        }
+        if (command == 5)
+        {
+            CalcExp calcExp = new CalcExp();
+            calcExp.calculateExp(a, b);
         }
     }
 }
