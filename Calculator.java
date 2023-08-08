@@ -41,8 +41,16 @@ public class Calculator {
         }
         if (command == 5)
         {
-            CalcExp calcExp = new CalcExp();
-            calcExp.calculateExp(a, b);
+            try
+            {
+                CalcExp calcExp = new CalcExp();
+                calcExp.calculateExp(a, b);
+            }
+            catch (InvalidInputException ex)
+            {
+                System.out.println(ex.getMessage());
+            }
+            
         }
     }
 }
