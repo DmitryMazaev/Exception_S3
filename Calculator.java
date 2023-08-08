@@ -29,8 +29,15 @@ public class Calculator {
         }
         if (command == 4)
         {
-            CalcDivision calcDivision = new CalcDivision();
-            calcDivision.calculateDivision(a, b);
+            try
+            {
+                CalcDivision calcDivision = new CalcDivision();
+                calcDivision.calculateDivision(a, b);
+            }
+            catch (DivisionByZeroException ex)
+            {
+                System.out.println(ex.getMessage());
+            }
         }
         if (command == 5)
         {
