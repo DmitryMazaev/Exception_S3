@@ -4,53 +4,58 @@ public class Calculator {
         double a = 0;
         double b = 0;
         int command = 0;
+        while (true)
+        {
+            EnterFirstNumber number1 = new EnterFirstNumber();
+            a = number1.enterFirstNumber();
+            EnterCommand com = new EnterCommand();
+            command = com.enterCommand();
+            EnterSecondNumber number2 = new EnterSecondNumber();
+            b = number2.enterSecondNumber();
 
-        EnterFirstNumber number1 = new EnterFirstNumber();
-        a = number1.enterFirstNumber();
-        EnterCommand com = new EnterCommand();
-        command = com.enterCommand();
-        EnterSecondNumber number2 = new EnterSecondNumber();
-        b = number2.enterSecondNumber();
-
-        if (command == 1)
-        {
-            CalcSum calcSum = new CalcSum();
-            calcSum.calculateSum(a, b);
-        }
-        if (command == 2)
-        {
-            CalcDiff calcDiff = new CalcDiff();
-            calcDiff.calculateDiff(a, b);
-        }
-        if (command == 3)
-        {
-            CalcMult calcMult = new CalcMult();
-            calcMult.calculateMult(a, b);
-        }
-        if (command == 4)
-        {
-            try
+            if (command == 1)
             {
-                CalcDivision calcDivision = new CalcDivision();
-                calcDivision.calculateDivision(a, b);
+                CalcSum calcSum = new CalcSum();
+                calcSum.calculateSum(a, b);
             }
-            catch (DivisionByZeroException ex)
+            if (command == 2)
             {
-                System.out.println(ex.getMessage());
+                CalcDiff calcDiff = new CalcDiff();
+                calcDiff.calculateDiff(a, b);
             }
+            if (command == 3)
+            {
+                CalcMult calcMult = new CalcMult();
+                calcMult.calculateMult(a, b);
+            }
+            if (command == 4)
+            {
+                try
+                {
+                    CalcDivision calcDivision = new CalcDivision();
+                    calcDivision.calculateDivision(a, b);
+                }
+                catch (DivisionByZeroException ex)
+                {
+                    System.out.println(ex.getMessage());
+                }
+            }
+            if (command == 5)
+            {
+                try
+                {
+                    CalcExp calcExp = new CalcExp();
+                    calcExp.calculateExp(a, b);
+                }
+                catch (InvalidInputException ex)
+                {
+                    System.out.println(ex.getMessage());
+                }
+                
+            }
+            System.out.println();
+            System.out.println("========================");
         }
-        if (command == 5)
-        {
-            try
-            {
-                CalcExp calcExp = new CalcExp();
-                calcExp.calculateExp(a, b);
-            }
-            catch (InvalidInputException ex)
-            {
-                System.out.println(ex.getMessage());
-            }
-            
-        }
+        
     }
 }
